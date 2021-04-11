@@ -9,16 +9,20 @@ Package `digest` lets you construct collections of Food objects, and
 efficiently search, filter and sort them. It has built-in data parsers and
 validators, and can sanitize queries passed to the collection.
 
+To be completed.
+
 # Installation
 
-The package is not published on `npm`. I thought it was too simple to be published.
-Instead, users can clone this repo into their project.
+The package is not published on `npm`. I thought it was too specific to be
+published. Instead, users can clone this repo into their project.
 
 ```bash
 git clone https://github.com/jeanmathieupotvin/digest
 ```
 
-Alternatively, they can download an [official release](https://github.com/jeanmathieupotvin/digest/releases) from this repository.
+Alternatively, they can download an
+[official release](https://github.com/jeanmathieupotvin/digest/releases) from
+this repository.
 
 # Usage
 
