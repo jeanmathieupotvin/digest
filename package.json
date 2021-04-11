@@ -1,0 +1,42 @@
+{
+  "name": "digest",
+  "version": "1.0.0",
+  "description": "A digestive for data structures constructed from Viome Gut Intelligence Test® kits' results. Construct collections of Food objects, and efficiently search, filter and sort them.",
+  "author": "Jean-Mathieu Potvin",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "food",
+    "foodcollection",
+    "foodquery",
+    "filter",
+    "sort",
+    "search",
+    "data-structures"
+  ],
+  "main": "index.js",
+  "homepage": "https://github.com/jeanmathieupotvin/digest#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeanmathieupotvin/digest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeanmathieupotvin/digest/issues"
+  },
+  "scripts": {
+    "test": "mocha tests/test.js"
+  },
+  "engines": {
+    "node": ">= 7.5.0"
+  },
+  "files": [
+    "tests/",
+    "LICENSE",
+    "HISTORY.md",
+    "index.js",
+    "README.md"
+  ],
+  "devDependencies": {
+    "mocha": "^8.3.2"
+  }
+}
