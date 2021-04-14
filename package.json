@@ -24,7 +24,8 @@
     "url": "https://github.com/jeanmathieupotvin/digest/issues"
   },
   "scripts": {
-    "test": "mocha tests/test.js"
+    "test": "mocha tests/test.js",
+    "doc": "jsdoc index.js -d ./doc/ -R ./README.md"
   },
   "engines": {
     "node": ">= 7.5.0"

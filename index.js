@@ -11,8 +11,10 @@
 
 /**
  * Global constants.
- * @param {string[]} stdCats - Standardized Viome® categories for foods.
- * @param {string[]} sortableProps - Properties that can be used to sort
+ * @constant
+ * @type {object}
+ * @property {string[]} stdCats - Standardized Viome® categories for foods.
+ * @property {string[]} sortableProps - Properties that can be used to sort
  *     a FoodCollection.
  */
  const globals = {
@@ -37,16 +39,17 @@
 class Food {
     /**
      * Construct a Food object.
-     * @param {string} alias - A unique ID.
-     * @param {string} imgFile - A file name of an image of the food.
-     * @param {string} foodEn - Name in English.
-     * @param {string} foodFr - Name in French.
-     * @param {string} serving - Serving recommended by Viome® when the food
-     *     should be either mnimized or avoided.
-     * @param {string} catJm - Standardized Viome® category for Jean-Mathieu.
-     *     Categories varies by person.
-     * @param {string} catRen - Standardized Viome® category for Renée.
-     *     Categories varies by person.
+     * @param {object} food         - An object containing the following properties. 
+     * @param {string} food.alias   - A unique ID.
+     * @param {string} food.imgFile - A file name of an image of the food.
+     * @param {string} food.foodEn  - Name in English.
+     * @param {string} food.foodFr  - Name in French.
+     * @param {string} food.serving - Serving recommended by Viome® when the
+     *     food should be either mnimized or avoided.
+     * @param {string} food.catJm   - Standardized Viome® category for
+     *     Jean-Mathieu. Categories varies by person.
+     * @param {string} food.catRen  - Standardized Viome® category for
+     *     Renée. Categories varies by person.
      * @returns {Food} A Food instance.
      */
     constructor({ alias, imgFile, foodEn, foodFr, serving, catJm, catRen }) {
@@ -65,7 +68,7 @@ class Food {
 
     /**
      * Validate a Food object.
-     * @returns {Food} - The underlying object is returned if it is valid.
+     * @returns {Food} The underlying object is returned if it is valid.
      *     Else, an error is returned. An object is considered valid if
      *         (1) all its properties are strings and
      *         (2) properties catJm and catRen contain standardized strings.
@@ -99,7 +102,7 @@ class Food {
 class FoodCollection extends Array {
     /**
      * Construct a FoodCollection object.
-     * @param {object[]|Food[]|...object|...Food} items - Either an array of
+     * @param {object[]|Food[]|...Food|...object} items - Either an array of
      *     Food instances and/or coercible objects, or any number of these
      *     objects. You can mix Food instances with regular objects, these
      *     will be converted to Food objects. If the first argument passed
@@ -122,7 +125,7 @@ class FoodCollection extends Array {
     /**
      * Validate the elements of a FoodCollection. Attempt to coerce objects
      * to Food instances, if any.
-     * @returns {FoodCollection} - The underlying object is returned if it is
+     * @returns {FoodCollection} The underlying object is returned if it is
      *     valid. Else, an error is returned. An object is considered valid if
      *     all its elements are Food instances (or can be coerced to Food
      *     instances).
@@ -149,12 +152,12 @@ class FoodCollection extends Array {
 
     /**
      * Filter a FoodCollection by category.
-     * @param {string} foodProp - A Food property holding Viome® standard food
-     *     categories: either catJm or catRen.
+     * @param {string} foodProp        - A Food property holding Viome® standard
+     *     food categories: either catJm or catRen.
      * @param {string|null} queryParam - A value stemming from properties catJm
      *     or catRen of a FoodQuery object. This argument should come from a
      *     FoodQuery instance.
-     * @returns {FoodCollection} - The filtered FoodCollection. If queryParam
+     * @returns {FoodCollection} The filtered FoodCollection. If queryParam
      *     is null, the whole collection is returned.
      */
     filterByCat(foodProp, queryParam = null) {
@@ -179,7 +182,7 @@ class FoodCollection extends Array {
      *     used to filter both English and French food names (Food properties
      *     foodEn and foodFr). This argument should come from a FoodQuery
      *     instance.
-     * @returns {FoodCollection} - The filtered FoodCollection. If queryParam
+     * @returns {FoodCollection} The filtered FoodCollection. If queryParam
      *     is null, the whole collection is returned.
      */
     filterByKeyword(queryParam = null) {
@@ -205,11 +208,13 @@ class FoodCollection extends Array {
     /**
      * Sort a FoodCollection by a sortable Food property.
      * @param {string|null} queryParam - A Food property to use when sorting
-     *     the collection. See globals.sortableProps for more information. This
-     *     argument should come from a FoodQuery instance.
-     * @param {string} order - Either 'asc' for ascending (alphabetical) order
-     *     or 'dsc' for descending (reversed alphabetical) order. 
-     * @returns 
+     *     the collection. See globals.sortableProps for more information.
+     *     This argument should come from a FoodQuery instance.
+     * @param {string} order           - Either 'asc' for ascending
+     *     (alphabetical) order or 'dsc' for descending (reversed alphabetical)
+     *     order. 
+     * @returns {FoodCollection} The sorted FoodCollection. If queryParam
+     *     is null, the collection is returned as is.
      */
     sortByProperty(queryParam = null, order = "asc") {
         // Check order argument. We do so even if 
@@ -239,7 +244,7 @@ class FoodCollection extends Array {
      * Digest (filter and sort) a FoodCollection.
      * @param {FoodQuery} query - An instance of class FoodQuery holding the
      *     parameters of a user's query. 
-     * @returns {FoodCollection} - The digested FoodCollection (filtered
+     * @returns {FoodCollection} The digested FoodCollection (filtered
      *     and sorted). If queryParam is null, the whole collection is returned.
      */
     digest(query) {
@@ -264,17 +269,19 @@ class FoodCollection extends Array {
 class FoodQuery {
     /**
      * Construct a FoodQuery object.
-     * @param {string|undefined} search - An optional keyword / string to use to
-     *     filter a FoodCollection based on foodEn and foodFr properties of
-     *     Food instances.
-     * @param {string|undefined} catJm - An optional standard food category to
-     *     use to filter a FoodCollection based on property catJm of
-     *     Food instances.
-     * @param {string|undefined} catRen - An optional standard food category to
-     *     use to filter a FoodCollection based on property catRen of
-     *     Food instances.
-     * @param {string|undefined} sort - An optional property of a Food instance
-     *     to use when sorting a FoodCollection.
+     * @param {Object} foodQuery                  - An object containing the
+     *     following properties. 
+     * @param {string|undefined} foodQuery.search - An optional keyword / string
+     *     to use to filter a FoodCollection based on foodEn and foodFr
+     *     properties of Food instances.
+     * @param {string|undefined} foodQuery.catJm  - An optional standard food
+     *     category to use to filter a FoodCollection based on property catJm
+     *     of Food instances.
+     * @param {string|undefined} foodQuery.catRen - An optional standard food
+     *     category to use to filter a FoodCollection based on property catRen
+     *     of Food instances.
+     * @param {string|undefined} foodQuery.sort   - An optional property of a
+     *     Food instance to use when sorting a FoodCollection.
      * @returns {FoodQuery} A FoodQuery instance.
      */
     constructor({ search, catJm, catRen, sort }) {
@@ -294,7 +301,7 @@ class FoodQuery {
      * Validate a search parameter.
      * @param {string|undefined} param - A search keyword. Refer to parameter 
      *     search of the constructor for more information.
-     * @returns {string|null} - A sanitized version of param. All punctuation
+     * @returns {string|null} A sanitized version of param. All punctuation
      *     characters and digits are removed; only letters and spaces are kept.
      *     If param is undefined, a null value is returned.
      */
@@ -316,7 +323,7 @@ class FoodQuery {
      * Validate a *cat parameter (catJm or catRen).
      * @param {string|undefined} param - A standard food category. Refer to
      *     parameters catJm or catRen of the constructor for more information.
-     * @returns {string|null} - The param argument is returned if it matches
+     * @returns {string|null} The param argument is returned if it matches
      *    (exactly) a standard value. Else, a null value is returned.
      */
     validateParamCat(param) {
@@ -327,7 +334,7 @@ class FoodQuery {
      * Validate a sort parameter.
      * @param {string|undefined} param - A property of a Food instance. Refer
      *     to parameter sort of the constructor for more information.
-     * @returns {string|null} - The param argument is returned if it matches
+     * @returns {string|null} The param argument is returned if it matches
      *    a sortable property of the Food class. Else, a null value is returned.
      */
     validateParamSort(param) {
