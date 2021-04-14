@@ -1,1 +1,47 @@
-[{"alias":"grape-seed-oil","imgFile":"grape-seed-oil.jpg","foodEn":"Grape Seed Oil","foodFr":"Huile De Pépins De Raisin","serving":"1 Cuillère À Soupe","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"caraway-seed","imgFile":"caraway-seed.jpg","foodEn":"Caraway Seed","foodFr":"Graine De Cumin","serving":"1/4 Cuillère À Thé","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"green-tea","imgFile":"green-tea.jpg","foodEn":"Green Tea","foodFr":"Thé Vert","serving":"1 Tasse","catJm":"Superfood","catRen":"Minimize"},{"alias":"apricot","imgFile":"apricot.jpg","foodEn":"Apricot","foodFr":"Abricot","serving":"3","catJm":"Minimize","catRen":"Enjoy"},{"alias":"yogurt-cow-milk-plain","imgFile":"yogurt-cow-milk-plain.jpg","foodEn":"Yogurt (Cow Milk, Plain)","foodFr":"Yogourt (Lait De Vache, Nature)","serving":"1/2 Tasse","catJm":"Minimize","catRen":"Enjoy"},{"alias":"kidney-beans","imgFile":"kidney-beans.jpg","foodEn":"Kidney Beans","foodFr":"Haricot Rouges","serving":"3/4 Tasse (Cuit)","catJm":"Minimize","catRen":"Enjoy"},{"alias":"cod-alaskan","imgFile":"cod-alaskan.jpg","foodEn":"Cod (Alaskan)","foodFr":"Morue (Alaska)","serving":"6 Onces","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"snap-peas","imgFile":"snap-peas.jpg","foodEn":"Snap Peas","foodFr":"Pois Mange-Tout","serving":"1 Tasse","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"prunes","imgFile":"prunes.jpg","foodEn":"Prunes","foodFr":"Pruneaux séchés","serving":"6","catJm":"Avoid","catRen":"Minimize"},{"alias":"green-beans","imgFile":"green-beans.jpg","foodEn":"Green Beans","foodFr":"Haricots Verts","serving":"1 Tasse","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"hickory-nuts","imgFile":"hickory-nuts.jpg","foodEn":"Hickory Nuts","foodFr":"Noix De Caryer","serving":"15","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"marionberry","imgFile":"marionberry.jpg","foodEn":"Marionberry","foodFr":"Mûres","serving":"1 Tasse","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"guava","imgFile":"guava.jpg","foodEn":"Guava","foodFr":"Goyave","serving":"2","catJm":"Superfood","catRen":"Enjoy"},{"alias":"turmeric","imgFile":"turmeric.jpg","foodEn":"Turmeric","foodFr":"Curcuma","serving":"1/2 Cuillère À Thé","catJm":"Enjoy","catRen":"Superfood"},{"alias":"egg-yolk-chicken","imgFile":"egg-yolk-chicken.jpg","foodEn":"Egg Yolk (Chicken)","foodFr":"Jaune D'Oeufs","serving":"3","catJm":"Minimize","catRen":"Minimize"},{"alias":"elderberry-boiled","imgFile":"elderberry-boiled.jpg","foodEn":"Elderberry (Boiled)","foodFr":"Baie De Sureau (Bouilli)","serving":"1 Tasse","catJm":"Superfood","catRen":"Superfood"},{"alias":"coffee","imgFile":"coffee.jpg","foodEn":"Coffee","foodFr":"Café","serving":"1 Tasse","catJm":"Enjoy","catRen":"Avoid"},{"alias":"savoury","imgFile":"savoury.jpg","foodEn":"Savoury","foodFr":"Sarriette","serving":"1/4 Cuillère À Thé","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"buckwheat","imgFile":"buckwheat.jpg","foodEn":"Buckwheat","foodFr":"Sarrasin","serving":"1/2 Tasse (Cuit)","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"passionfruit","imgFile":"passionfruit.jpg","foodEn":"Passionfruit","foodFr":"Fruit De La Passion","serving":"3/4 Tasse","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"rutabaga","imgFile":"rutabaga.jpg","foodEn":"Rutabaga","foodFr":"Rutabaga (Navet)","serving":"1 Tasse (Tranché)","catJm":"Enjoy","catRen":"Enjoy"},{"alias":"sage","imgFile":"sage.jpg","foodEn":"Sage","foodFr":"Sauge","serving":"1/4 Cuillère À Thé","catJm":"Superfood","catRen":"Enjoy"},{"alias":"celeriac","imgFile":"celeriac.jpg","foodEn":"Celeriac","foodFr":"Céleri-Rave","serving":"1 Tasse","catJm":"Minimize","catRen":"Enjoy"},{"alias":"rice-milk-unsweetened","imgFile":"rice-milk-unsweetened.jpg","foodEn":"Rice Milk (Unsweetened)","foodFr":"Lait De Riz (Non Sucré)","serving":"3/4 Tasse","catJm":"Minimize","catRen":"Minimize"},{"alias":"barley","imgFile":"barley.jpg","foodEn":"Barley","foodFr":"Orge","serving":"3 Onces (Cuit)","catJm":"Minimize","catRen":"Enjoy"}]
+[
+    {
+        "alias": "grape-seed-oil",
+        "imgFile": "grape-seed-oil.jpg",
+        "foodEn": "Grape Seed Oil",
+        "foodFr": "Huile De Pépins De Raisin",
+        "serving": "1 Cuillère À Soupe",
+        "catJm": "Enjoy",
+        "catRen": "Enjoy"
+    },
+    {
+        "alias": "caraway-seed",
+        "imgFile": "caraway-seed.jpg",
+        "foodEn": "Caraway Seed",
+        "foodFr": "Graine De Cumin",
+        "serving": "1/4 Cuillère À Thé",
+        "catJm": "Enjoy",
+        "catRen": "Enjoy"
+    },
+    {
+        "alias": "rutabaga",
+        "imgFile": "rutabaga.jpg",
+        "foodEn": "Rutabaga",
+        "foodFr": "Rutabaga (Navet)",
+        "serving": "1 Tasse (Tranché)",
+        "catJm": "Enjoy",
+        "catRen": "Enjoy"
+    },
+    {
+        "alias": "green-tea",
+        "imgFile": "green-tea.jpg",
+        "foodEn": "Green Tea",
+        "foodFr": "Thé Vert",
+        "serving": "1 Tasse",
+        "catJm": "Superfood",
+        "catRen": "Minimize"
+    },
+    {
+        "alias": "barley",
+        "imgFile": "barley.jpg",
+        "foodEn": "Barley",
+        "foodFr": "Orge",
+        "serving": "3 Onces (Cuit)",
+        "catJm": "Minimize",
+        "catRen": "Enjoy"
+    }
+]
