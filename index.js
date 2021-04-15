@@ -247,10 +247,7 @@ class FoodCollection extends Array {
      * @returns {FoodCollection} The digested FoodCollection (filtered
      *     and sorted). If queryParam is null, the whole collection is returned.
      */
-    digest(query) {
-        // Destructure FoodQuery instance.
-        const { search, catJm, catRen, sort } = query;
-
+    digest({ search, catJm, catRen, sort }) {
         // Returned digested array (possibly empty).
         // Filter by categories first (it is faster).
         // Then, filter by keyword and finally, sort results.
