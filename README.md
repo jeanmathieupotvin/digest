@@ -15,11 +15,10 @@ own kit online from their [online store](https://www.viome.com/products/gut-inte
 
 # Description
 
-Package `digest` lets you construct collections of `Food` objects, and
+Package `digest` lets you construct collections of `Food` objects and
 efficiently search, filter and sort them. It has built-in data parsers and
 validators, and can sanitize queries passed to the collection. It is an
-appropriate data structure/pair to better use and explore your Viome®
-personal results.
+appropriate tool to better use and explore your Viome® personal results.
 
 # Installation
 
@@ -57,12 +56,17 @@ named `catJm` and `catRen`. In future versions, I will automate a way to change
 these keys easily. In the meantime, you can change them in the source code
 directly.
 
+## Classes Food and FoodCollection
+
 The data structure above is formalized by class `Food`. `Food` instances are
-then grouped together through class `FoodCollection`. The latter extends class
+grouped together through class `FoodCollection`. The latter extends class
 `Array` and provides additional methods to easily search, filter and sort the
-collection. The main interface aside from the constructor is the method
-`FoodCollection.digest()`, which conveniently does all these operations in one
-call based on an instance of class `FoodQuery`.
+collection. The main interface to the collection, aside from the constructor, is
+the method `FoodCollection.digest()`, which conveniently does all these
+operations in one call. This call is derived from an instance of class
+`FoodQuery`.
+
+## Class FoodQuery
 
 Class `FoodQuery` is designed to parse, validate, and sanitize queries to be
 passed to method `FoodCollection.digest()`. The goal is to instantiate a
@@ -73,7 +77,7 @@ so you can go ahead and throw multiple queries.
 # Integration
 
 The package exports three classes / objects: `Food`, `FoodCollection` and
-`FoodQuery`. You can import it this way.
+`FoodQuery`. You can import them this way.
 
 ```js
 // You may need to change the path.
@@ -88,6 +92,17 @@ execute all unit tests.
 ```bash
 npm run test
 ```
+
+# Documentation
+
+Code documentation is based on JSDoc 3. Run the command line below to generate
+documentation files.
+
+```bash
+npm run doc
+```
+
+You can also check the source code of `index.js` directly.
 
 # Bugs and feedback
 
