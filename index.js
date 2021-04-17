@@ -45,7 +45,7 @@ class Food {
      * @param {string} food.foodEn  - Name in English.
      * @param {string} food.foodFr  - Name in French.
      * @param {string} food.serving - Serving recommended by Viome® when the
-     *     food should be either mnimized or avoided.
+     *     food should be either minimized or avoided.
      * @param {string} food.catJm   - Standardized Viome® category for
      *     Jean-Mathieu. Categories varies by person.
      * @param {string} food.catRen  - Standardized Viome® category for
