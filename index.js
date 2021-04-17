@@ -242,12 +242,20 @@ class FoodCollection extends Array {
 
     /**
      * Digest (filter and sort) a FoodCollection.
-     * @param {FoodQuery} query - An instance of class FoodQuery holding the
-     *     parameters of a user's query. 
+     * @param {FoodQuery} foodQuery - An instance of class FoodQuery holding
+     *     the parameters of a user's query. 
      * @returns {FoodCollection} The digested FoodCollection (filtered
      *     and sorted). If queryParam is null, the whole collection is returned.
      */
-    digest({ search, catJm, catRen, sort }) {
+    digest(foodQuery) {
+        // Check argument first. We require an instance of FoodQuery.
+        if (!foodQuery instanceof FoodQuery) {
+            throw new TypeError('argument is not an instance of class FoodQuery.');
+        }
+
+        // Destructure parameters of foodQuery.
+        const { search, catJm, catRen, sort } = foodQuery;
+
         // Returned digested array (possibly empty).
         // Filter by categories first (it is faster).
         // Then, filter by keyword and finally, sort results.
