@@ -13,11 +13,25 @@
 const assert = require('assert').strict;
 const { Food, FoodCollection, FoodQuery } = require('../');
 
+/*!
+ * =============================================================================
+ * Test data used in multiple tests
+ * =============================================================================
+ */
+
 // Load test dataset.
 const foodArr = require('./test-data');
 
 // Construct a FoodCollection instance from test data.
 const foodColl = new FoodCollection(foodArr);
+
+// Construct a test object to pass to FoodQuery constructor.
+const foodQueryParams = {
+    search: undefined,
+    catJm: undefined,
+    catRen: undefined,
+    sort: undefined
+};
 
 /*!
  * =============================================================================
@@ -190,7 +204,7 @@ describe('check FoodCollection class', function() {
         assert.throws(() => foodColl.sortByProperty('foodFr', 'error'));
     });
 
-    it('digests the collection approprately', function() {
+    it('digests the collection approprately [.digest()]', function() {
         const subColl = new FoodCollection(
             {
                 alias: "caraway-seed",
@@ -244,5 +258,57 @@ describe('check FoodCollection class', function() {
  */
 
 describe('check FoodQuery class', function() {
-    // TBD.
+    it('returns a FoodQuery object [constructor]', function() {
+        assert.strictEqual(new FoodQuery(foodQueryParams) instanceof FoodQuery, true);
+    });
+
+    it('validates and sanitizes search keywords appropriately [.validateParamSearch()]', function() {
+        // Create instance.
+        const foodQuery = new FoodQuery(foodQueryParams);
+
+        // Test that a null is returned on falsy values.
+        assert.strictEqual(foodQuery.validateParamSearch(), null);
+
+        // Test that usual keywords work.
+        foodQuery.validateParamSearch('éàê', 'éàê');
+        foodQuery.validateParamSearch('bar', 'bar');
+        foodQuery.validateParamSearch('foo', 'foo');
+
+        // Test that usual characters and digits
+        // are removed in non-falsy values.
+        assert.strictEqual(
+            foodQuery.validateParamSearch('\'!\"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~0123456789]'),
+            ''
+        );
+    });
+
+    it('validates categories parameters [.validateParamCat()]', function() {
+        // Create instance.
+        const foodQuery = new FoodQuery(foodQueryParams);
+        
+        // Test standard values.
+        assert.strictEqual(foodQuery.validateParamCat('Superfood'), 'Superfood');
+        assert.strictEqual(foodQuery.validateParamCat('Enjoy'),     'Enjoy');
+        assert.strictEqual(foodQuery.validateParamCat('Minimize'),  'Minimize');
+        assert.strictEqual(foodQuery.validateParamCat('Avoid'),     'Avoid');
+
+        // Test if null is returned when non-standard
+        // parameters are passed to validator.
+        assert.strictEqual(foodQuery.validateParamCat('error'), null);
+    });
+
+    it('validates sort parameters [.validateParamSort()]', function() {
+        // Create instance.
+        const foodQuery = new FoodQuery(foodQueryParams);
+        
+        // Test standard values.
+        assert.strictEqual(foodQuery.validateParamSort('foodEn'), 'foodEn');
+        assert.strictEqual(foodQuery.validateParamSort('foodFr'), 'foodFr');
+        assert.strictEqual(foodQuery.validateParamSort('catJm'),  'catJm');
+        assert.strictEqual(foodQuery.validateParamSort('catRen'), 'catRen');
+
+        // Test if null is returned when non-standard
+        // parameters are passed to validator.
+        assert.strictEqual(foodQuery.validateParamSort('error'), null);
+    });
 });
