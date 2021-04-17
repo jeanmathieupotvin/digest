@@ -1,5 +1,7 @@
 # digest
 
+[![test](https://github.com/jeanmathieupotvin/digest/actions/workflows/npm-test.yml/badge.svg?branch=main)](https://github.com/jeanmathieupotvin/digest/actions/workflows/npm-test.yml)
+
 A digestive for data structures constructed from results stemming from
 Viome Gut Intelligence Test® kits.
 
@@ -31,13 +33,13 @@ has the following structure.
 
 ```js
 {
-    "alias":   "string - a unique ID",
-    "imgFile": "string - a file name of an image of the food",
-    "foodEn":  "string - a name in English",
-    "foodFr":  "string - a name in French",
-    "serving": "string - recommended serving by Viome®",
-    "catPer1": "string - standardized Viome® category for person 1",
-    "catPer2": "string - standardized Viome® category for person 2",
+    alias:   "string - a unique ID",
+    imgFile: "string - a file name of an image of the food",
+    foodEn:  "string - a name in English",
+    foodFr:  "string - a name in French",
+    serving: "string - recommended serving by Viome®",
+    catPer1: "string - standardized Viome® category for person 1",
+    catPer2: "string - standardized Viome® category for person 2",
 }
 ```
 
