@@ -1,0 +1,24 @@
+# This workflow will run tests whenever there is activity in the main branch.
+
+name: test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 7.5
+      - run: npm ci
+      - run: npm test
