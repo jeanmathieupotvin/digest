@@ -3,7 +3,15 @@
 [![test](https://github.com/jeanmathieupotvin/digest/actions/workflows/npm-test.yml/badge.svg?branch=main)](https://github.com/jeanmathieupotvin/digest/actions/workflows/npm-test.yml)
 
 A digestive for data structures constructed from results stemming from
-Viome Gut Intelligence Test® kits.
+[Viome](https://www.viome.com/) Gut Intelligence Test® kits.
+
+# Disclaimer
+
+I am not affiliated to Viome® in any way. I built this package to make it easier
+to search and manipulate my own personal results.
+
+*Viome*® and *Viome Gut Intelligence Test*® are registered trademarks. Buy your
+own kit online from their [online store](https://www.viome.com/products/gut-intelligence).
 
 # Description
 
