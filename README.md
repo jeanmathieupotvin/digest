@@ -19,11 +19,12 @@ own kit online from their [online store](https://www.viome.com/products/gut-inte
 
 # Description
 
-Package `digest` is a small framework designed to more easily manipulate results
+Package `digest` is a small framework designed to easily manipulate results
 stemming from [Viome](https://www.viome.com/) Gut Intelligence Test® kits. It lets
 you construct collections of `Food` objects and efficiently search, filter and
 sort them. It has built-in data parsers and validators, and can sanitize
-queries passed to the collection.
+queries passed to the collection. It is purposely kept minimal, and focuses on
+speed.
 
 # Installation
 
@@ -60,12 +61,12 @@ const digest = require('./lib/digest')('keyPerson1', 'keyPerson2');
 ```
 
 Code above imports the `setup()` function and immediately invokes it. This
-itself exports all classes of `digest`: `Food`, `FoodCollection` and
+exports all classes of `digest`: `Food`, `FoodCollection` and
 `FoodQuery`. The two arguments passed to `setup()` customize the `Food`
 class, and adpats it to your own data, by ensuring generic properties
-`catPerson1` and `catPerson2` are renamed to `'cat' + keyPerson1`. This
-means you must be careful to pass the exact same person keys you used when
-constructing your data. See section [Usage](#Usage) for more information.
+`catPerson1` and `catPerson2` are renamed to `'cat' + keyPerson1`. Be careful
+to pass the exact same person keys you used when constructing your data. See
+section [Usage](#Usage) below.
 
 # Usage
 
@@ -73,6 +74,7 @@ Package `digest` relies on a central data structure called `Food`. Here
 is an example of one valid `Food` object.
 
 ```js
+// In the following example, person keys would be 'Romeo' and 'Juliet'.
 {
     "alias": "green-tea",
     "imgFile": "green-tea.jpg",
@@ -96,15 +98,14 @@ potentially violate Viome® terms and conditions.
 
 ## Class Food 
 
-Here.
+The data structure above is formalized by class `Food`.
 
 ## Class FoodCollection
 
-The data structure above is formalized by class `Food`. `Food` instances are
-grouped together through class `FoodCollection`. The latter extends class
-`Array` and provides additional methods to easily search, filter and sort the
-collection. The main interface to the collection, aside from the constructor, is
-the method `FoodCollection.digest()`, which conveniently does all these
+`Food` instances are grouped together through class `FoodCollection`. The latter 
+extends class `Array` and provides additional methods to easily search, filter and
+sort the collection. The main interface to the collection, aside from the constructor,
+is the method `FoodCollection.digest()`, which conveniently does all these
 operations in one call. This call is derived from an instance of class
 `FoodQuery`.
 
