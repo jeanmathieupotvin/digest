@@ -10,7 +10,7 @@ A digestive for data structures constructed from results stemming from
 I am not affiliated to Viome® in any way. Package `digest` is an independent
 project. 
 
-No Viome® data is exposed by `digest`: it assumes that each user builds its own
+No Viome® data is exposed by `digest`. It assumes that each user builds its own
 dataset manually from their personal results. On a side-note, the small test
 dataset was built manually from my personal results.
 
@@ -19,12 +19,11 @@ own kit online from their [online store](https://www.viome.com/products/gut-inte
 
 # Description
 
-Package `digest` is a small framework for results stemming from
-[Viome](https://www.viome.com/) Gut Intelligence Test® kits. It lets you 
-construct collections of `Food` objects and efficiently search, filter and
+Package `digest` is a small framework designed to more easily manipulate results
+stemming from [Viome](https://www.viome.com/) Gut Intelligence Test® kits. It lets
+you construct collections of `Food` objects and efficiently search, filter and
 sort them. It has built-in data parsers and validators, and can sanitize
-queries passed to the collection. It is an appropriate tool to better use
-and explore your Viome® personal results.
+queries passed to the collection.
 
 # Installation
 
