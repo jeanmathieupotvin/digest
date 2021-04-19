@@ -7,29 +7,44 @@ A digestive for data structures constructed from results stemming from
 
 # Disclaimer
 
-I am not affiliated to Viome® in any way. I built this package to make it easier
-to search and manipulate my own personal results.
+I am not affiliated to Viome® in any way. Package `digest` is an independent
+project. No Viome® data is exposed by `digest`. The small test dataset was 
+built manually. Furthermore, `digest` assumes that each user builds its own
+dataset manually from their personal results. 
 
 *Viome*® and *Viome Gut Intelligence Test*® are registered trademarks. Buy your
 own kit online from their [online store](https://www.viome.com/products/gut-intelligence).
 
 # Description
 
-Package `digest` lets you construct collections of `Food` objects and
-efficiently search, filter and sort them. It has built-in data parsers and
-validators, and can sanitize queries passed to the collection. It is an
-appropriate tool to better use and explore your Viome® personal results.
+Package `digest` is a small framework for results stemming from
+[Viome](https://www.viome.com/) Gut Intelligence Test® kits. It lets you 
+construct collections of `Food` objects and efficiently search, filter and
+sort them. It has built-in data parsers and validators, and can sanitize
+queries passed to the collection. It is an appropriate tool to better use
+and explore your Viome® personal results.
 
 # Installation
 
 The package is not published on `npm`. I thought it was too specific to be
-published. Instead, users can clone this repo into their project.
+published. Instead, they can simply declare it as a submodule to their project.
 
 ```bash
+git submodule add https://github.com/jeanmathieupotvin/digest ./lib/digest
+git add .gitmodules
+git add ./lib/digest
+git commit -m "Adding digest as a dependency to project."
+git checkout [VERSION-TAG]
+```
+
+Alternatively, users can clone this repo into their project.
+
+```bash
+cd lib
 git clone https://github.com/jeanmathieupotvin/digest
 ```
 
-Alternatively, they can download an
+Finally, they can download an
 [official release](https://github.com/jeanmathieupotvin/digest/releases) from
 this repository.
 
