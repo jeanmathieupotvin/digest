@@ -88,7 +88,9 @@ is an example of one valid `Food` object.
 
 This structure is designed to hold information on one food included in Viome® 
 results. It also holds information on categories of two persons, here Romeo
-and Juliet. Refer to the official documentation for more information.
+and Juliet.
+
+Refer to the official documentation for detailed information.
 
 ## Building datasets of multiple Foods
 
@@ -128,14 +130,14 @@ npm run test
 
 # Documentation
 
+The official documentation is available [here]().
+
 Code documentation is based on JSDoc 3. Run the command line below to generate
 documentation files.
 
 ```bash
 npm run doc
 ```
-
-You can also check the source code of `index.js` directly.
 
 # Bugs and feedback
 
