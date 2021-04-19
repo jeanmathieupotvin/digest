@@ -51,30 +51,55 @@ Finally, they can manually download an
 [official release](https://github.com/jeanmathieupotvin/digest/releases) from
 this repository.
 
+# Setup
+
+The package exposes a single function that you can import as a regular
+CommonJS module.
+
+```js
+const digest = require('./lib/digest')('keyPerson1', 'keyPerson2');
+```
+
+Code above imports the `setup()` function and immediately invokes it. This
+itself exports all classes of `digest`: `Food`, `FoodCollection` and
+`FoodQuery`. The two arguments passed to `setup()` customize the `Food`
+class, and adpats it to your own data, by ensuring generic properties
+`catPerson1` and `catPerson2` are renamed to `'cat' + keyPerson1`. This
+means you must be careful to pass the exact same person keys you used when
+constructing your data. See section [Usage](#Usage) for more information.
+
 # Usage
 
-Package `digest` relies on an array of objects, each representing a food. It
-has the following structure.
+Package `digest` relies on a central data structure called `Food`. Here
+is an example of one valid `Food` object.
 
 ```js
 {
-    alias:   "string - a unique ID",
-    imgFile: "string - a file name of an image of the food",
-    foodEn:  "string - a name in English",
-    foodFr:  "string - a name in French",
-    serving: "string - recommended serving by Viome®",
-    catPer1: "string - standardized Viome® category for person 1",
-    catPer2: "string - standardized Viome® category for person 2",
+    "alias": "green-tea",
+    "imgFile": "green-tea.jpg",
+    "foodEn": "Green Tea",
+    "foodNative": "Thé Vert",
+    "serving": "1 Tasse",
+    "catRomeo": "Superfood",
+    "catJuliet": "Minimize"
 }
 ```
 
-This data structure is designed to hold food categories of two persons. You
-will notice that in the source code, keys `catPer1` and `catPer2` are actually
-named `catJm` and `catRen`. In future versions, I will automate a way to change
-these keys easily. In the meantime, you can change them in the source code
-directly.
+This structure is designed to hold information on one food included in Viome® 
+results. It also holds information on categories of two persons, here Romeo
+and Juliet. Refer to the official documentation for more information.
 
-## Classes Food and FoodCollection
+## Building datasets of multiple Foods
+
+Package `digest` assumes you already have an array of objects having this
+structure. It cannot assist you in this (boring) task, because this could
+potentially violate Viome® terms and conditions.
+
+## Class Food 
+
+Here.
+
+## Class FoodCollection
 
 The data structure above is formalized by class `Food`. `Food` instances are
 grouped together through class `FoodCollection`. The latter extends class
@@ -91,16 +116,6 @@ passed to method `FoodCollection.digest()`. The goal is to instantiate a
 `FoodCollection` first, and then *digest* (manipulate) it based on queries
 passed as instances of `FoodQuery`. The collection is not mutated by default,
 so you can go ahead and throw multiple queries.
-
-# Integration
-
-The package exports three classes / objects: `Food`, `FoodCollection` and
-`FoodQuery`. You can import them this way.
-
-```js
-// You may need to change the path.
-const { Food, FoodCollection, FoodQuery } = require('./lib/digest');
-```
 
 # Testing
 
