@@ -25,18 +25,11 @@
   },
   "scripts": {
     "test": "mocha tests/test.js",
-    "doc": "jsdoc index.js -d ./doc/ -R ./README.md"
+    "doc": "jsdoc index.js -c ./jsdoc.config.js -d ./doc/ -R ./README.md"
   },
   "engines": {
     "node": ">= 7.5.0"
   },
-  "files": [
-    "tests/",
-    "LICENSE",
-    "HISTORY.md",
-    "index.js",
-    "README.md"
-  ],
   "devDependencies": {
     "mocha": "^8.3.2"
   }
