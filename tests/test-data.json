@@ -3,45 +3,45 @@
         "alias": "grape-seed-oil",
         "imgFile": "grape-seed-oil.jpg",
         "foodEn": "Grape Seed Oil",
-        "foodFr": "Huile De Pépins De Raisin",
+        "foodNative": "Huile De Pépins De Raisin",
         "serving": "1 Cuillère À Soupe",
-        "catJm": "Enjoy",
-        "catRen": "Enjoy"
+        "catRomeo": "Enjoy",
+        "catJuliet": "Enjoy"
     },
     {
         "alias": "caraway-seed",
         "imgFile": "caraway-seed.jpg",
         "foodEn": "Caraway Seed",
-        "foodFr": "Graine De Cumin",
+        "foodNative": "Graine De Cumin",
         "serving": "1/4 Cuillère À Thé",
-        "catJm": "Enjoy",
-        "catRen": "Enjoy"
+        "catRomeo": "Enjoy",
+        "catJuliet": "Enjoy"
     },
     {
         "alias": "rutabaga",
         "imgFile": "rutabaga.jpg",
         "foodEn": "Rutabaga",
-        "foodFr": "Rutabaga (Navet)",
+        "foodNative": "Rutabaga (Navet)",
         "serving": "1 Tasse (Tranché)",
-        "catJm": "Enjoy",
-        "catRen": "Enjoy"
+        "catRomeo": "Enjoy",
+        "catJuliet": "Enjoy"
     },
     {
         "alias": "green-tea",
         "imgFile": "green-tea.jpg",
         "foodEn": "Green Tea",
-        "foodFr": "Thé Vert",
+        "foodNative": "Thé Vert",
         "serving": "1 Tasse",
-        "catJm": "Superfood",
-        "catRen": "Minimize"
+        "catRomeo": "Superfood",
+        "catJuliet": "Minimize"
     },
     {
         "alias": "barley",
         "imgFile": "barley.jpg",
         "foodEn": "Barley",
-        "foodFr": "Orge",
+        "foodNative": "Orge",
         "serving": "3 Onces (Cuit)",
-        "catJm": "Minimize",
-        "catRen": "Enjoy"
+        "catRomeo": "Minimize",
+        "catJuliet": "Enjoy"
     }
 ]

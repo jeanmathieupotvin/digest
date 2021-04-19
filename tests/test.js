@@ -7,20 +7,32 @@
  * MIT License
  */
 
-"use strict";
+'use strict';
 
 // Dependencies.
 const assert = require('assert').strict;
-const { Food, FoodCollection, FoodQuery } = require('../');
 
 /*!
  * =============================================================================
- * Test data used in multiple tests
+ * Test data
  * =============================================================================
  */
 
-// Load test dataset.
+/*!
+ * Load test dataset.
+ * Test dataset consists of 5 foods taken from the combined results of Romeo
+ * and Juliet.
+ */
 const foodArr = require('./test-data');
+
+// Expose classes of digest.
+const { Food, FoodCollection, FoodQuery } = require('../')('Romeo', 'Juliet');
+
+/*!
+ * =============================================================================
+ * Objects reused in multiple tests
+ * =============================================================================
+ */
 
 // Construct a FoodCollection instance from test data.
 const foodColl = new FoodCollection(foodArr);
@@ -28,8 +40,8 @@ const foodColl = new FoodCollection(foodArr);
 // Construct a test object to pass to FoodQuery constructor.
 const foodQueryParams = {
     search: undefined,
-    catJm: undefined,
-    catRen: undefined,
+    catRomeo: undefined,
+    catJuliet: undefined,
     sort: undefined
 };
 
@@ -57,14 +69,14 @@ describe('check Food class', function() {
         // Speed is not a concern here.
         const foodErr = JSON.parse(JSON.stringify(foodArr[0]));
         
-        // Insert error into property catJm and test.
-        foodErr.catJm = 'error';
+        // Insert error into property catRomeo and test.
+        foodErr.catRomeo = 'error';
         assert.throws(() => new Food(foodErr));
 
-        // Remove error from catJm, insert
-        // error into property catRen and test.
-        foodErr.catJm  = foodErr.catRen;
-        foodErr.catRen = 'error';
+        // Remove error from catRomeo, insert
+        // error into property catJuliet and test.
+        foodErr.catRomeo  = foodErr.catJuliet;
+        foodErr.catJuliet = 'error';
         assert.throws(() => new Food(foodErr));
     });
 });
@@ -99,24 +111,24 @@ describe('check FoodCollection class', function() {
         // Deep copy first element of data.
         // Speed is not a concern here.
         const foodErr = new Food(JSON.parse(JSON.stringify(foodArr[0])));
-        foodErr.catJm = 'error';
+        foodErr.catRomeo = 'error';
 
         assert.throws(() => new FoodCollection(foodArr[0], foodErr));
     });
 
     it('filters collections by category [.filterByCat()]', function() {
         const subColl = new FoodCollection({
-            alias: "green-tea",
-            imgFile: "green-tea.jpg",
-            foodEn: "Green Tea",
-            foodFr: "Thé Vert",
-            serving: "1 Tasse",
-            catJm: "Superfood",
-            catRen: "Minimize"
+            alias: 'green-tea',
+            imgFile: 'green-tea.jpg',
+            foodEn: 'Green Tea',
+            foodNative: 'Thé Vert',
+            serving: '1 Tasse',
+            catRomeo: 'Superfood',
+            catJuliet: 'Minimize'
         });
 
-        assert.deepEqual(foodColl.filterByCat('catJm', 'Superfood'), subColl);
-        assert.deepEqual(foodColl.filterByCat('catRen', 'Minimize'), subColl);
+        assert.deepEqual(foodColl.filterByCat('catRomeo', 'Superfood'), subColl);
+        assert.deepEqual(foodColl.filterByCat('catJuliet', 'Minimize'), subColl);
 
         // Check arguments checks.
         assert.throws(() => foodColl.filterByCat('error'));
@@ -125,22 +137,22 @@ describe('check FoodCollection class', function() {
     it('filters collections by keywords [.filterByKeyword()]', function() {
         const filteredColl = new FoodCollection(
             {
-                alias: "grape-seed-oil",
-                imgFile: "grape-seed-oil.jpg",
-                foodEn: "Grape Seed Oil",
-                foodFr: "Huile De Pépins De Raisin",
-                serving: "1 Cuillère À Soupe",
-                catJm: "Enjoy",
-                catRen: "Enjoy"
+                alias: 'grape-seed-oil',
+                imgFile: 'grape-seed-oil.jpg',
+                foodEn: 'Grape Seed Oil',
+                foodNative: 'Huile De Pépins De Raisin',
+                serving: '1 Cuillère À Soupe',
+                catRomeo: 'Enjoy',
+                catJuliet: 'Enjoy'
             },
             {
-                alias: "caraway-seed",
-                imgFile: "caraway-seed.jpg",
-                foodEn: "Caraway Seed",
-                foodFr: "Graine De Cumin",
-                serving: "1/4 Cuillère À Thé",
-                catJm: "Enjoy",
-                catRen: "Enjoy"
+                alias: 'caraway-seed',
+                imgFile: 'caraway-seed.jpg',
+                foodEn: 'Caraway Seed',
+                foodNative: 'Graine De Cumin',
+                serving: '1/4 Cuillère À Thé',
+                catRomeo: 'Enjoy',
+                catJuliet: 'Enjoy'
             }
         );
 
@@ -148,88 +160,88 @@ describe('check FoodCollection class', function() {
     });
 
     it('sorts collection appropriately in any order [.sortByProperty()]', function() {
-        // Sorted collection by foodFr.
+        // Sorted collection by foodNative.
         const sortedFoodCollAsc = new FoodCollection(
             {
-                alias: "caraway-seed",
-                imgFile: "caraway-seed.jpg",
-                foodEn: "Caraway Seed",
-                foodFr: "Graine De Cumin",
-                serving: "1/4 Cuillère À Thé",
-                catJm: "Enjoy",
-                catRen: "Enjoy"
+                alias: 'caraway-seed',
+                imgFile: 'caraway-seed.jpg',
+                foodEn: 'Caraway Seed',
+                foodNative: 'Graine De Cumin',
+                serving: '1/4 Cuillère À Thé',
+                catRomeo: 'Enjoy',
+                catJuliet: 'Enjoy'
             },
             {
-                alias: "grape-seed-oil",
-                imgFile: "grape-seed-oil.jpg",
-                foodEn: "Grape Seed Oil",
-                foodFr: "Huile De Pépins De Raisin",
-                serving: "1 Cuillère À Soupe",
-                catJm: "Enjoy",
-                catRen: "Enjoy"
+                alias: 'grape-seed-oil',
+                imgFile: 'grape-seed-oil.jpg',
+                foodEn: 'Grape Seed Oil',
+                foodNative: 'Huile De Pépins De Raisin',
+                serving: '1 Cuillère À Soupe',
+                catRomeo: 'Enjoy',
+                catJuliet: 'Enjoy'
             },
             {
-                alias: "barley",
-                imgFile: "barley.jpg",
-                foodEn: "Barley",
-                foodFr: "Orge",
-                serving: "3 Onces (Cuit)",
-                catJm: "Minimize",
-                catRen: "Enjoy"
+                alias: 'barley',
+                imgFile: 'barley.jpg',
+                foodEn: 'Barley',
+                foodNative: 'Orge',
+                serving: '3 Onces (Cuit)',
+                catRomeo: 'Minimize',
+                catJuliet: 'Enjoy'
             },
             {
-                alias: "rutabaga",
-                imgFile: "rutabaga.jpg",
-                foodEn: "Rutabaga",
-                foodFr: "Rutabaga (Navet)",
-                serving: "1 Tasse (Tranché)",
-                catJm: "Enjoy",
-                catRen: "Enjoy"
+                alias: 'rutabaga',
+                imgFile: 'rutabaga.jpg',
+                foodEn: 'Rutabaga',
+                foodNative: 'Rutabaga (Navet)',
+                serving: '1 Tasse (Tranché)',
+                catRomeo: 'Enjoy',
+                catJuliet: 'Enjoy'
             },
             {
-                alias: "green-tea",
-                imgFile: "green-tea.jpg",
-                foodEn: "Green Tea",
-                foodFr: "Thé Vert",
-                serving: "1 Tasse",
-                catJm: "Superfood",
-                catRen: "Minimize"
+                alias: 'green-tea',
+                imgFile: 'green-tea.jpg',
+                foodEn: 'Green Tea',
+                foodNative: 'Thé Vert',
+                serving: '1 Tasse',
+                catRomeo: 'Superfood',
+                catJuliet: 'Minimize'
             }
         );
 
-        assert.deepEqual(foodColl.sortByProperty('foodFr', 'asc'), sortedFoodCollAsc);
-        assert.deepEqual(foodColl.sortByProperty('foodFr', 'dsc'), sortedFoodCollAsc.reverse());
+        assert.deepEqual(foodColl.sortByProperty('foodNative', 'asc'), sortedFoodCollAsc);
+        assert.deepEqual(foodColl.sortByProperty('foodNative', 'dsc'), sortedFoodCollAsc.reverse());
         
         // Check argument checks.
-        assert.throws(() => foodColl.sortByProperty('foodFr', 'error'));
+        assert.throws(() => foodColl.sortByProperty('foodNative', 'error'));
     });
 
     it('digests the collection approprately [.digest()]', function() {
         const subColl = new FoodCollection(
             {
-                alias: "caraway-seed",
-                imgFile: "caraway-seed.jpg",
-                foodEn: "Caraway Seed",
-                foodFr: "Graine De Cumin",
-                serving: "1/4 Cuillère À Thé",
-                catJm: "Enjoy",
-                catRen: "Enjoy"
+                alias: 'caraway-seed',
+                imgFile: 'caraway-seed.jpg',
+                foodEn: 'Caraway Seed',
+                foodNative: 'Graine De Cumin',
+                serving: '1/4 Cuillère À Thé',
+                catRomeo: 'Enjoy',
+                catJuliet: 'Enjoy'
             },
             {
-                alias: "grape-seed-oil",
-                imgFile: "grape-seed-oil.jpg",
-                foodEn: "Grape Seed Oil",
-                foodFr: "Huile De Pépins De Raisin",
-                serving: "1 Cuillère À Soupe",
-                catJm: "Enjoy",
-                catRen: "Enjoy"
+                alias: 'grape-seed-oil',
+                imgFile: 'grape-seed-oil.jpg',
+                foodEn: 'Grape Seed Oil',
+                foodNative: 'Huile De Pépins De Raisin',
+                serving: '1 Cuillère À Soupe',
+                catRomeo: 'Enjoy',
+                catJuliet: 'Enjoy'
             }
         );
 
         const foodQuery = new FoodQuery({
             search: 'gra',
-            catJm: 'Enjoy',
-            catRen: "Enjoy'",
+            catRomeo: 'Enjoy',
+            catJuliet: 'Enjoy',
             sort: 'foodEn'
         });
 
@@ -239,12 +251,12 @@ describe('check FoodCollection class', function() {
     it('returns the collection when arguments passed to methods are null', function() {
         const nullFoodQuery = new FoodQuery({
             search: null,
-            catJm: null,
-            catRen: null,
+            catRomeo: null,
+            catJuliet: null,
             sort: null
         });
 
-        assert.deepEqual(foodColl.filterByCat('catJm'), foodColl);
+        assert.deepEqual(foodColl.filterByCat('catRomeo'), foodColl);
         assert.deepEqual(foodColl.filterByKeyword(), foodColl);
         assert.deepEqual(foodColl.sortByProperty(), foodColl);
         assert.deepEqual(foodColl.digest(nullFoodQuery), foodColl);
@@ -277,7 +289,7 @@ describe('check FoodQuery class', function() {
         // Test that usual characters and digits
         // are removed in non-falsy values.
         assert.strictEqual(
-            foodQuery.validateParamSearch('\'!\"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~0123456789]'),
+            foodQuery.validateParamSearch('\'!\'#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~0123456789]'),
             ''
         );
     });
@@ -303,9 +315,9 @@ describe('check FoodQuery class', function() {
         
         // Test standard values.
         assert.strictEqual(foodQuery.validateParamSort('foodEn'), 'foodEn');
-        assert.strictEqual(foodQuery.validateParamSort('foodFr'), 'foodFr');
-        assert.strictEqual(foodQuery.validateParamSort('catJm'),  'catJm');
-        assert.strictEqual(foodQuery.validateParamSort('catRen'), 'catRen');
+        assert.strictEqual(foodQuery.validateParamSort('foodNative'), 'foodNative');
+        assert.strictEqual(foodQuery.validateParamSort('catRomeo'),  'catRomeo');
+        assert.strictEqual(foodQuery.validateParamSort('catJuliet'), 'catJuliet');
 
         // Test if null is returned when non-standard
         // parameters are passed to validator.
