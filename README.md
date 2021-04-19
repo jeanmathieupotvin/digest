@@ -1,6 +1,9 @@
 # digest
 
+<!-- Badges: start -->
 [![test](https://github.com/jeanmathieupotvin/digest/actions/workflows/npm-test.yml/badge.svg?branch=main)](https://github.com/jeanmathieupotvin/digest/actions/workflows/npm-test.yml)
+<!-- Badges: end -->
+
 
 A digestive for data structures constructed from results stemming from
 [Viome](https://www.viome.com/) Gut Intelligence Test® kits.
@@ -130,10 +133,9 @@ npm run test
 
 # Documentation
 
-The official documentation is available [here]().
-
-Code documentation is based on JSDoc 3. Run the command line below to generate
-documentation files.
+Code documentation is based on JSDoc 3. It is fully available
+[here](https://docs.potvin.xyz/digest). You can also run the command line
+below to generate all documentation files.
 
 ```bash
 npm run doc
