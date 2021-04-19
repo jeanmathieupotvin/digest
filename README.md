@@ -8,9 +8,11 @@ A digestive for data structures constructed from results stemming from
 # Disclaimer
 
 I am not affiliated to Viome® in any way. Package `digest` is an independent
-project. No Viome® data is exposed by `digest`. The small test dataset was 
-built manually. Furthermore, `digest` assumes that each user builds its own
-dataset manually from their personal results. 
+project. 
+
+No Viome® data is exposed by `digest`: it assumes that each user builds its own
+dataset manually from their personal results. On a side-note, the small test
+dataset was built manually from my personal results.
 
 *Viome*® and *Viome Gut Intelligence Test*® are registered trademarks. Buy your
 own kit online from their [online store](https://www.viome.com/products/gut-intelligence).
@@ -27,7 +29,7 @@ and explore your Viome® personal results.
 # Installation
 
 The package is not published on `npm`. I thought it was too specific to be
-published. Instead, they can simply declare it as a submodule to their project.
+published. Instead, users can declare it as a submodule to their project.
 
 ```bash
 git submodule add https://github.com/jeanmathieupotvin/digest ./lib/digest
@@ -37,14 +39,15 @@ git commit -m "Adding digest as a dependency to project."
 git checkout [VERSION-TAG]
 ```
 
-Alternatively, users can clone this repo into their project.
+Alternatively, users can clone this repository into their project.
 
 ```bash
 cd lib
 git clone https://github.com/jeanmathieupotvin/digest
+git checkout [VERSION-TAG]
 ```
 
-Finally, they can download an
+Finally, they can manually download an
 [official release](https://github.com/jeanmathieupotvin/digest/releases) from
 this repository.
 
