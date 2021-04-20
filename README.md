@@ -39,7 +39,6 @@ git submodule add https://github.com/jeanmathieupotvin/digest ./lib/digest
 git add .gitmodules
 git add ./lib/digest
 git commit -m "Adding digest as a dependency to project."
-git checkout [VERSION-TAG]
 ```
 
 Alternatively, users can clone this repository into their project.
@@ -47,7 +46,6 @@ Alternatively, users can clone this repository into their project.
 ```bash
 cd lib
 git clone https://github.com/jeanmathieupotvin/digest
-git checkout [VERSION-TAG]
 ```
 
 Finally, they can manually download an
@@ -105,6 +103,8 @@ potentially violate Viome® terms and conditions.
 
 The data structure above is formalized by class `Food`.
 
+Full documentation is available [here](https://docs.potvin.xyz/digest/v1.1/Food.html).
+
 ## Class FoodCollection
 
 `Food` instances are grouped together through class `FoodCollection`. The latter 
@@ -114,6 +114,8 @@ is the method `FoodCollection.digest()`, which conveniently does all these
 operations in one call. This call is derived from an instance of class
 `FoodQuery`.
 
+Full documentation is available [here](https://docs.potvin.xyz/digest/v1.1/FoodCollection.html).
+
 ## Class FoodQuery
 
 Class `FoodQuery` is designed to parse, validate, and sanitize queries to be
@@ -121,6 +123,8 @@ passed to method `FoodCollection.digest()`. The goal is to instantiate a
 `FoodCollection` first, and then *digest* (manipulate) it based on queries
 passed as instances of `FoodQuery`. The collection is not mutated by default,
 so you can go ahead and throw multiple queries.
+
+Full documentation is available [here](https://docs.potvin.xyz/digest/v1.1/FoodQuery.html).
 
 # Testing
 
@@ -134,7 +138,7 @@ npm run test
 # Documentation
 
 Code documentation is based on JSDoc 3. It is fully available
-[here](https://docs.potvin.xyz/digest). You can also run the command line
+[here](https://docs.potvin.xyz/digest/v1.1). You can also run the command line
 below to generate all documentation files.
 
 ```bash
