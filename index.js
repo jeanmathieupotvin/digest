@@ -381,7 +381,7 @@ function setup(keyPerson1, keyPerson2) {
     // Print map between persons and their
     // underlying keys before returning.
     console.log(
-        '\x1b[32mdigest: using the following \x1b[36mmap \x1b[32mbetween persons and categories:',
+        '\x1b[32m[digest] using the following \x1b[36mmap \x1b[32mbetween persons and categories:',
         `\x1b[36m{ ${keyPerson1} => ${catPerson1}, ${keyPerson2} => ${catPerson2} }.`
     );
 
