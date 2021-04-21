@@ -1,10 +1,5 @@
 # digest
 
-<!-- Badges: start -->
-[![test](https://github.com/jeanmathieupotvin/digest/actions/workflows/npm-test.yml/badge.svg?branch=main)](https://github.com/jeanmathieupotvin/digest/actions/workflows/npm-test.yml)
-<!-- Badges: end -->
-
-
 A digestive for data structures constructed from results stemming from
 [Viome](https://www.viome.com/) Gut Intelligence Test® kits.
 
