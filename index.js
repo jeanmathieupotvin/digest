@@ -114,7 +114,7 @@ function setup(keyPerson1, keyPerson2) {
             // Validate keys.
             if (this[catPerson1] === undefined ||
                 this[catPerson2] === undefined) {
-                    throw new Error(`person keys do not match ((food alias: ${this.alias}).`);
+                    throw new Error(`person keys do not match (food alias: ${this.alias}).`);
             }
 
             // Validate that all parameters are strings.
