@@ -74,10 +74,11 @@ function setup(keyPerson1, keyPerson2) {
          * @param {string} [food.imgFile]    - File name of an image of the food.
          *     If unused, it is set equal to an empty string.
          * @param {string} food.foodEn       - Name in english.
-         * @param {string} [food.foodNative} - Name in native langugage. If
+         * @param {string} [food.foodNative] - Name in native langugage. If
          *     unused, it is set equal to `foodEn`.
-         * @param {string} food.serving      - Serving recommended by Viome® when
-         *     the food should be either minimized or avoided.
+         * @param {string} food.serving      - Serving recommended by Viome®
+         *     when the food should be either minimized or avoided. It should
+         *     be based on native language.
          * @param {...string} food.cats      - Standardized Viome® category for
          *     Person 1 and Person 2 respectively: `Superfood`, `Enjoy`,
          *     `Minimize` or `Enjoy`. Categories varies by person. Further
@@ -110,6 +111,12 @@ function setup(keyPerson1, keyPerson2) {
          *     only `Superfood`, `Enjoy`, `Minimize`, `Avoid`.
          */
         validate() {
+            // Validate keys.
+            if (this[catPerson1] === undefined ||
+                this[catPerson2] === undefined) {
+                    throw new Error(`person keys do not match ((food alias: ${this.alias}).`);
+            }
+
             // Validate that all parameters are strings.
             if (Object.keys(this).some(e => typeof this[e] !== 'string')) {
                 throw new TypeError(`all properties must be a string (food alias: ${this.alias}).`);
@@ -380,9 +387,10 @@ function setup(keyPerson1, keyPerson2) {
 
     // Print map between persons and their
     // underlying keys before returning.
+    // "\x1b[0m" is a code that resets colors.
     console.log(
-        '\x1b[32m[digest] using the following \x1b[36mmap \x1b[32mbetween persons and categories:',
-        `\x1b[36m{ ${keyPerson1} => ${catPerson1}, ${keyPerson2} => ${catPerson2} }.`
+        '\x1b[32m[digest] using these \x1b[36mkeys \x1b[32mfor persons and categories:',
+        `\x1b[36m{ ${keyPerson1} => ${catPerson1}, ${keyPerson2} => ${catPerson2} }.\x1b[0m`
     );
 
     return { Food, FoodCollection, FoodQuery };

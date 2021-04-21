@@ -55,6 +55,20 @@ describe('check Food class', function() {
     it('returns a Food object [constructor]', function() {
         assert.strictEqual(new Food(foodArr[0]) instanceof Food, true);
     });
+
+    it('flags non-matching person keys [.validate()]', function() {
+        assert.throws(() => {
+            new Food({
+                alias: 'green-tea',
+                imgFile: 'green-tea.jpg',
+                foodEn: 'Green Tea',
+                foodNative: 'Thé Vert',
+                serving: '1 Tasse',
+                catBob: 'Superfood',
+                catAlice: 'Minimize'
+            });
+        });
+    });
     
     it('flags non-string properties [.validate()]', function() {
         // Deep copy first element of data.

@@ -1,4 +1,12 @@
+Version 1.1.1 // 2021-04-21
+---------------------------
+
+* Bugfix. Validator was not validating person keys in an informative way.
+* Bugfix. Colors were being altered in console after calling `setup()`.
+* Bugfix. Typo in documentation of the `foodNative` parameter's documentation.
+
 Version 1.1.0 // 2021-04-17
+---------------------------
 
 * Better documentation. More concise.
 * Support for (more) flexible Food data structures.
