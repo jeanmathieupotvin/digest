@@ -35,10 +35,25 @@ The package is not published on `npm`. I thought it was too specific to be
 published. Instead, users can declare it as a submodule to their project.
 
 ```bash
-git submodule add https://github.com/jeanmathieupotvin/digest ./lib/digest
+git submodule add https://github.com/jeanmathieupotvin/digest lib/digest
 git add .gitmodules
-git add ./lib/digest
-git commit -m "Adding digest as a dependency to project."
+git add lib/digest
+git commit -m "Add digest as a dependency to project."
+```
+
+To use a specific version of the submodule, checkout a specific
+version tag or commit. Navigate to `lib/digest`, checkout the
+required version and stage/commit the submobule.
+
+To update the submodule, follow these steps.
+
+```bash
+cd lib/digest
+git pull origin main
+git checkout [TAG|HASH] # if you require a specific version
+cd ../..
+git add lib/digest
+git commit -m "Update package digest to version X.Y.Z."
 ```
 
 Alternatively, users can clone this repository into their project.
@@ -81,7 +96,7 @@ is an example of one valid `Food` object.
     "imgFile": "green-tea.jpg",
     "foodEn": "Green Tea",
     "foodNative": "Thé Vert",
-    "serving": "1 Tasse",
+    "serving": "1 Cup",
     "catRomeo": "Superfood",
     "catJuliet": "Minimize"
 }
