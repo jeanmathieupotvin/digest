@@ -355,7 +355,7 @@ function setup(keyPerson1, keyPerson2) {
                 // punctuation characters and all digits.
                 const filterRegEx = new RegExp(/[\u2000-\u206F\u2E00-\u2E7F\\'!'#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~0123456789]/, 'g');
 
-                // Returned sanitized value.
+                // Return sanitized value.
                 return param.replace(filterRegEx, '');
             } else {
                 return null;
